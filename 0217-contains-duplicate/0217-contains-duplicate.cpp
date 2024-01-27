@@ -17,10 +17,7 @@ public:
     for(auto i : mp){
         if(i.second >=2 ) return true;
     }
-
     return false;
     
-
-
     }
 };
