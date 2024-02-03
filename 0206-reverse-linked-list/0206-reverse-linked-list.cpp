@@ -25,7 +25,7 @@ public:
 //         return prev;
         // iternative solution
         
-        
+       // recursive solution 
         if(head ==nullptr || head->next==nullptr)
             return head;
         
