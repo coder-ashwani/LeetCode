@@ -10,21 +10,55 @@
  */
 class Solution {
 public:
+    ListNode* reverseLL(ListNode* head) {
+    if (head == nullptr || head->next == nullptr) { 
+        return head; 
+    }
+
+    ListNode* newHead = reverseLL(head->next);
+    ListNode* front = head->next; 
+    front->next = head;
+    head->next = NULL;
+    return newHead;
+    }
+
     bool isPalindrome(ListNode* head) {
-        stack<int> st;
-        ListNode* temp= head;
-        while(temp != nullptr){
-            st.push(temp->val);
-            temp=temp->next;
+        // stack<int> st;
+        // ListNode* temp= head;
+        // while(temp != nullptr){
+        //     st.push(temp->val);
+        //     temp=temp->next;
+        // }
+        // temp=head;
+        // while(temp != nullptr){
+        //     if(temp->val != st.top()){
+        //         return false;
+        //     }
+        //     st.pop();
+        //     temp=temp->next;
+        // }
+        // return true;    // taking extra space
+
+        if(head==nullptr || head->next == nullptr) return true;
+        ListNode* slow=head;
+        ListNode* fast=head;
+        while(fast->next != nullptr && fast->next->next != nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
         }
-        temp=head;
-        while(temp != nullptr){
-            if(temp->val != st.top()){
+        ListNode* newhead=reverseLL(slow->next);
+        ListNode* first=head;
+        ListNode* second=newhead;
+        while(second != nullptr){
+            if(first->val != second->val){
+                reverseLL(newhead);
                 return false;
             }
-            st.pop();
-            temp=temp->next;
+            first=first->next;
+            second=second->next;
         }
+        reverseLL(newhead);
         return true;
+        
     }
 };
