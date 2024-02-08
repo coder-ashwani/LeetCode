@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
-        // Even  pointer is always ahead of odd node
+        // Even  pointer is always ahead of odd node pointer
         // we have to memorize the even head so that we can connect to odd last node to evenhead
        
         if(head == NULL || head->next == NULL)
