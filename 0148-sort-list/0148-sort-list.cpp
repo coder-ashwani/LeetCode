@@ -13,7 +13,9 @@ public:
     ListNode* sortList(ListNode* head) {
         if(head==NULL || head->next == NULL)
         return head;
-
+        
+        
+        // finding mid node
         ListNode* mid= findmid(head);
         ListNode* left=head;
         ListNode* right=mid->next;
@@ -23,8 +25,8 @@ public:
         left=sortList(left);
         right=sortList(right);
 
-        ListNode* result=merge(left,right);
-        return result;
+        // ListNode* result=merge(left,right);
+        return merge(left,right);  //merge two list
 
 
     }
@@ -63,7 +65,7 @@ public:
             temp=right;
             right=right->next;
         }
-        ans=ans->next;
-        return ans;
+        
+        return ans->next;
     }
 };
