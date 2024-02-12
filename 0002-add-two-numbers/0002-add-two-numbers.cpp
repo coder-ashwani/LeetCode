@@ -25,7 +25,7 @@ public:
             ListNode* newNode= new ListNode(sum%10);
             carry=sum/10;
             curr->next=newNode;
-            curr=newNode;
+            curr=curr->next;
             
             if(temp1) temp1=temp1->next;
             if(temp2) temp2=temp2->next;
