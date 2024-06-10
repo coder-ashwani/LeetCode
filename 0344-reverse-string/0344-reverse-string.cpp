@@ -10,7 +10,11 @@ public:
         // }
         // return s;
         for(int i=0,j=n-1;i<j;i++){
-            swap(s[i],s[j]);
+            swap(s[i],s[j]); // using swap function
+            //using temp string
+            // char temp=s[i];
+            // s[i]=s[j];
+            // s[j]=temp;
             --j;
         }
         return ;
